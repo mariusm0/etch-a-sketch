@@ -31,7 +31,7 @@ let clearBtn = document.querySelector('.clearBtn');
 let divs = document.querySelectorAll('.containers');
 
 clearBtn.addEventListener('click', () => {
-    for (i = 0; i < 256; i++) {
+    for (i = 0; i < 4096; i++) {
         container.children[i].setAttribute("style", "background-colo: black");
     }
 });
@@ -47,9 +47,28 @@ colorBtn.addEventListener('click', (e) => {
         var randomColor = Math.floor(Math.random() * 16777215).toString(16);
         if (e.target.classList.contains('containers')) {
         e.target.style.backgroundColor = "#" + randomColor;
-        color.innerHTML = "#" + randomColor;
         }
     })
 });
+
+//Function to change grid size
+
+let changeInput = document.getElementById('changeSize');
+
+changeInput.addEventListener('keyup', () => {
+    if (changeInput.value >= 1 && changeInput.value <= 64) {
+
+        let htmlElements = changeInput.value * changeInput.value;
+        for (let i = 0; i < htmlElements; i++) {
+            let containers = document.createElement("div");
+            containers.className = "containers";
+            container.appendChild(containers);
+        }
+    } else {
+        confirm('Enter number between 1-64');
+        }
+
+});
+
 
 
