@@ -16,12 +16,15 @@
 
 .btns {
     display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
-.clearBtn {
-    margin-top: 100px;
-    margin-right: 35%;
-    margin-left: 35%;
+.clearBtn, .colorBtn, .blackBtn {
+  margin-right: 20px;
+  margin-top: 100px;
 }
+
+
 
 
 
